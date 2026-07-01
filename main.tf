@@ -81,6 +81,8 @@ module "ec2" {
   ec2_sg_id              = module.networking.ec2_sg_id
   docker_image           = var.docker_image
   app_port               = var.app_port
+  ssh_key_name           = var.ssh_key_name
+  ssh_public_key_path    = var.ssh_public_key_path
 }
 
 module "asg" {

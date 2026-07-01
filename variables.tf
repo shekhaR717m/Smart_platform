@@ -44,6 +44,18 @@ variable "app_port" {
   default = 8000
 }
 
+variable "ssh_key_name" {
+  description = "SSH key pair name for EC2 instances"
+  type        = string
+  default     = "omen-ec2"
+}
+
+variable "ssh_public_key_path" {
+  description = "Local path to the public SSH key file"
+  type        = string
+  default     = "C:/Users/omen/.ssh/id_rsa.pub"
+}
+
 # ASG
 variable "asg_min_size" {
   type    = number

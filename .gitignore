@@ -1,0 +1,7 @@
+.terraform
+actions-runner.yml
+terraform.tfstate
+.terraform.tfstate.backup
+actions-runner
+.terraform.lock.hcl
+terraform.tfstate.backup

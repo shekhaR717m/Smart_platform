@@ -12,9 +12,11 @@ app_port             = 8000
 asg_min_size         = 1
 asg_max_size         = 3
 asg_desired_capacity = 1
+ssh_key_name         = "omen-ec2"
+ssh_public_key_path  = "C:/Users/omen/.ssh/id_rsa.pub"
 
 alarm_email          = "mayankshekhar170704@main.com"
-frontend_bucket_name = "rt-serverless-hybrid-frontend-Mayank-Shekhar-717m"
+frontend_bucket_name = "rt-serverless-hybrid-frontend-mayank-shekhar-717m"
 
 github_org           = "shekhkaR717m"
 github_repo          = "Smart_platform"

@@ -34,6 +34,11 @@ locals {
   EOF
 }
 
+resource "aws_key_pair" "this" {
+  key_name   = var.ssh_key_name
+  public_key = file(var.ssh_public_key_path)
+}
+
 resource "aws_launch_template" "this" {
   name_prefix   = "${var.project_name}-lt-"
   image_id      = data.aws_ami.al2023.id
@@ -42,6 +47,8 @@ resource "aws_launch_template" "this" {
   iam_instance_profile {
     name = var.instance_profile_name
   }
+
+  key_name = aws_key_pair.this.key_name
 
   vpc_security_group_ids = [var.ec2_sg_id]
 
