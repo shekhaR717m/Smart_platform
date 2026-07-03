@@ -15,8 +15,8 @@ resource "aws_sns_topic_subscription" "email" {
 # Allow CloudWatch Alarms + ASG to publish
 data "aws_iam_policy_document" "sns" {
   statement {
-    sid     = "AllowCloudWatchAndASGPublish"
-    actions = ["sns:Publish"]
+    sid       = "AllowCloudWatchAndASGPublish"
+    actions   = ["sns:Publish"]
     resources = [aws_sns_topic.this.arn]
 
     principals {

@@ -34,12 +34,12 @@ jobs:
         run: |
           CMD_ID=$(aws ssm send-command \
             --document-name "${{ vars.SSM_DOCUMENT }}" \
-            --targets "Key=tag:Name,Values=${{ vars.PROJECT_TAG }}" \
+            --targets "Key=tag:Name,Values=${{ vars.APP_INSTANCE_NAME_TAG }}" \
             --parameters "image=${IMAGE}" \
             --query "Command.CommandId" --output text)
           echo "Command: $CMD_ID"
           aws ssm wait command-executed \
             --command-id $CMD_ID \
             --instance-id $(aws ec2 describe-instances \
-              --filters "Name=tag:Name,Values=${{ vars.PROJECT_TAG }}" "Name=instance-state-name,Values=running" \
+              --filters "Name=tag:Name,Values=${{ vars.APP_INSTANCE_NAME_TAG }}" "Name=instance-state-name,Values=running" \
               --query "Reservations[0].Instances[0].InstanceId" --output text) || true

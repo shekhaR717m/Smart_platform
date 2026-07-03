@@ -32,3 +32,23 @@ output "github_actions_role_arn" {
   description = "IAM role ARN assumed by GitHub Actions via OIDC"
   value       = module.iam.github_actions_role_arn
 }
+
+output "cloudfront_distribution_id" {
+  description = "CloudFront distribution ID used for frontend cache invalidations"
+  value       = module.cloudfront.distribution_id
+}
+
+output "ssm_deploy_document_name" {
+  description = "SSM document name used by GitHub Actions backend deployments"
+  value       = module.ssm.deploy_document_name
+}
+
+output "app_instance_name_tag" {
+  description = "Name tag value used to target ASG app instances with SSM"
+  value       = "${var.project_name}-asg-instance"
+}
+
+output "target_group_arn" {
+  description = "ALB target group ARN used to inspect backend target health"
+  value       = module.alb.target_group_arn
+}

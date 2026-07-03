@@ -23,7 +23,7 @@ resource "aws_ssm_document" "deploy" {
             - aws --version || true
             - docker pull {{ image }}
             - docker rm -f fastapi || true
-            - docker run -d --restart=always --name fastapi -p 8000:8000 {{ image }}
+            - docker run -d --restart=always --name fastapi -p ${var.app_port}:${var.app_port} {{ image }}
   DOC
 }
 

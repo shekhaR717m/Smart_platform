@@ -56,6 +56,12 @@ variable "ssh_public_key_path" {
   default     = "C:/Users/omen/.ssh/id_rsa.pub"
 }
 
+variable "ssh_allowed_cidrs" {
+  description = "CIDR blocks allowed to SSH to EC2 instances. For demos, 0.0.0.0/0 works but your public IP /32 is safer."
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
+}
+
 # ASG
 variable "asg_min_size" {
   type    = number

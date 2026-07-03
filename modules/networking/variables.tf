@@ -3,3 +3,4 @@ variable "vpc_cidr" { type = string }
 variable "public_subnet_cidrs" { type = list(string) }
 variable "availability_zones" { type = list(string) }
 variable "app_port" { type = number }
+variable "ssh_allowed_cidrs" { type = list(string) }

@@ -69,7 +69,7 @@ resource "aws_security_group" "alb" {
 
 resource "aws_security_group" "ec2" {
   name        = "${var.project_name}-ec2-sg"
-  description = "Allow app traffic from ALB"
+  description = "Allow app traffic from ALB and SSH access for operations"
   vpc_id      = aws_vpc.this.id
 
   ingress {
@@ -78,6 +78,14 @@ resource "aws_security_group" "ec2" {
     to_port         = var.app_port
     protocol        = "tcp"
     security_groups = [aws_security_group.alb.id]
+  }
+
+  ingress {
+    description = "SSH for EC2 Instance Connect or key-based access"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = var.ssh_allowed_cidrs
   }
 
   egress {
