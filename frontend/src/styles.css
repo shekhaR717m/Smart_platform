@@ -8,6 +8,9 @@
   --accent: #0f766e;
   --accent-dark: #115e59;
   --blue: #2563eb;
+  --danger: #b42318;
+  --warning: #b54708;
+  --success: #067647;
 }
 
 * {
@@ -40,6 +43,31 @@ button {
 
 button:hover {
   background: var(--accent-dark);
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+button.secondary {
+  color: var(--accent);
+  background: #e7f6f3;
+}
+
+button.secondary:hover {
+  background: #d4efeb;
+}
+
+button.linkButton {
+  padding: 0;
+  color: var(--accent);
+  background: transparent;
+}
+
+button.linkButton:hover {
+  color: var(--accent-dark);
+  background: transparent;
 }
 
 input,
@@ -123,6 +151,14 @@ h2 {
   text-transform: capitalize;
 }
 
+.status.online strong {
+  color: var(--success);
+}
+
+.status.offline strong {
+  color: var(--warning);
+}
+
 .apiPanel,
 .panel {
   margin-top: 18px;
@@ -143,9 +179,18 @@ h2 {
   color: var(--muted);
 }
 
+.apiPanel p.success {
+  color: var(--success);
+  font-weight: 700;
+}
+
+.notice {
+  color: var(--muted);
+}
+
 .apiRow {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr auto auto;
   gap: 10px;
 }
 
@@ -153,6 +198,24 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
+}
+
+.panelTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.panelTitle h2 {
+  margin-bottom: 0;
+}
+
+.panelTitle span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 form {
@@ -176,20 +239,53 @@ form {
   white-space: nowrap;
 }
 
-.appointment {
+.appointment,
+.triageResult {
   display: grid;
-  grid-template-columns: 180px 1fr 170px;
+  gap: 4px;
 }
 
-.wide {
-  grid-column: 1 / -1;
+.triageResult {
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #f8fafc;
+}
+
+.triageResult strong {
+  text-transform: capitalize;
+}
+
+.triageResult.high strong {
+  color: var(--danger);
+}
+
+.triageResult.medium strong {
+  color: var(--warning);
+}
+
+.triageResult.low strong {
+  color: var(--success);
+}
+
+.triageResult span,
+.triageResult small {
+  color: var(--muted);
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
 @media (max-width: 760px) {
   .hero,
   .apiRow,
   .grid,
-  .appointment {
+  .appointment,
+  .twoCol {
     grid-template-columns: 1fr;
   }
 

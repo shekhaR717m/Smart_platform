@@ -1,0 +1,21 @@
+{
+  "name": "smart-telehealth-backend",
+  "version": "2.0.0",
+  "description": "Node.js Express API for the Smart Telehealth AWS demo platform.",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "lint": "node --check src/server.js && node --check src/app.js && node --check src/routes/health.js && node --check src/routes/providers.js && node --check src/routes/appointments.js && node --check src/routes/triage.js && node --check src/controllers/healthController.js && node --check src/controllers/providerController.js && node --check src/controllers/appointmentController.js && node --check src/controllers/triageController.js && node --check src/middleware/errorHandler.js && node --check src/data/providers.js && node --check src/data/appointments.js && node --check src/utils/apiError.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.3",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0"
+  }
+}

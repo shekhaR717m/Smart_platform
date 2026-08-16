@@ -8,6 +8,7 @@ terraform.tfvars
 crash.log
 crash.*.log
 node_modules/
+backend/.npm-cache/
 frontend/dist/
 backend/**/__pycache__/
 *.pyc

@@ -3,7 +3,7 @@
 Modular Terraform for an AWS demo platform that provisions:
 
 - VPC with 2 public subnets, an internet gateway, route tables, and security groups
-- EC2 Launch Template running a Dockerized FastAPI app on `app_port`
+- EC2 Launch Template running a Dockerized Node.js/Express app on `app_port`
 - Internet-facing Application Load Balancer with a `/health` target group
 - Auto Scaling Group with ELB health checks, rolling instance refresh, and CPU scaling policies
 - CloudWatch CPU alarms with SNS notifications
@@ -130,15 +130,15 @@ The workflows assume:
 
 This repo includes a small telehealth demo:
 
-- `backend/`: FastAPI API with `/health`, provider listing, appointments, and triage.
+- `backend/`: Node.js/Express API with `/health`, provider listing, appointments, and triage.
 - `frontend/`: static React-based dashboard that builds to `frontend/dist`.
 
 Run backend locally:
 
 ```bash
 cd backend
-pip install -r requirements.txt
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+npm install
+npm run dev
 ```
 
 Run frontend locally:

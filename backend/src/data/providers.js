@@ -1,0 +1,38 @@
+export const providers = [
+  {
+    id: "DOC-01",
+    name: "Dr. Neha Rao",
+    specialty: "General Physician",
+    available_today: true,
+    next_slot: "10:30 AM",
+    rating: 4.9,
+    languages: ["English", "Hindi"],
+  },
+  {
+    id: "DOC-02",
+    name: "Dr. Kabir Singh",
+    specialty: "Cardiology",
+    available_today: true,
+    next_slot: "02:00 PM",
+    rating: 4.8,
+    languages: ["English", "Hindi", "Punjabi"],
+  },
+  {
+    id: "DOC-03",
+    name: "Dr. Aisha Khan",
+    specialty: "Dermatology",
+    available_today: false,
+    next_slot: "Tomorrow 11:00 AM",
+    rating: 4.7,
+    languages: ["English", "Urdu"],
+  },
+  {
+    id: "DOC-04",
+    name: "Dr. Rohan Iyer",
+    specialty: "Mental Health",
+    available_today: true,
+    next_slot: "05:30 PM",
+    rating: 4.9,
+    languages: ["English", "Tamil"],
+  },
+];
