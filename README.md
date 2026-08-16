@@ -2,6 +2,8 @@
 
 Modular Terraform for an AWS demo platform that provisions:
 
+If the frontend connection, local run, or GitHub Actions deployment checks fail, please read [`note.md`](./note.md) for step-by-step troubleshooting instructions.
+
 - VPC with 2 public subnets, an internet gateway, route tables, and security groups
 - EC2 Launch Template running a Dockerized Node.js/Express app on `app_port`
 - Internet-facing Application Load Balancer with a `/health` target group
